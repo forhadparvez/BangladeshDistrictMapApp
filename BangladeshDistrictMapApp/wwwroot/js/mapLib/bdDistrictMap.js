@@ -1,12 +1,11 @@
 ﻿$(document).ready(function () {
-var value=1;
-if(value>5){
-    $("#Dhaka").css({ fill: "red" });
-}
-else{
-    $("#Dhaka").css({ fill: "green" });
-}
-    
+var value=500;
+var a=getMapColor(value);
+    $("#Dhaka").css({ fill: a });
+
+    $("#DinajpurLabel").text("Dinajpur");
+    $("#DinajpurValue").text("500");
+   
     $("#Narayanganj").css({ fill: "red" });
     $("#Narsingdi").css({ fill: "red" });
     $("#Gazipur").css({ fill: "red" });
@@ -82,3 +81,35 @@ $(document.body).on("click",
         var id = button.attr("data-id");
         alert(id);
     });
+
+
+    function getMapColor(value){
+        var colorCode="#";
+        if(value<100){
+            colorCode+="5DB200";
+        }else if(value>=100 && value<500){
+            colorCode+="65D555";
+        }
+        else if(value>=500 && value<1000){
+            colorCode+="92E991";
+        }
+        else if(value>=1000 && value<1500){
+            colorCode+="D9E991";
+        }
+        else if(value>=1500 && value<2000){
+            colorCode+="CBD555";
+        }
+        else if(value>=2000 && value<2500){
+            colorCode+="AAB200";
+        }
+        else if(value>=2500 && value<3500){
+            colorCode+="E99891";
+        }
+        else if(value>=3500 && value<5500){
+            colorCode+="D55B55";
+        }
+        else if(value>=5500){
+            colorCode+="B20800";
+        }
+        return colorCode;
+    }
